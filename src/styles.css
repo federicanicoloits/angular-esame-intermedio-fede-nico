@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(27, 27, 27);
+    color: rgb(245, 245, 245);
+}
+.col {
+    margin-bottom: 1.5rem;
+}
+.nav-link {
+    cursor: pointer;
+}
+h2,
+h3 {
+    text-align: center;
+    color: rgb(245, 245, 245);
+}
+h1 {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: rgb(245, 245, 245);
+}
+.card {
+    border: 0;
+}
