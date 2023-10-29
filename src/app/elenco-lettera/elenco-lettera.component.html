@@ -1,20 +1,148 @@
-<h1>Lettera {{ lettera }}</h1>
-<div class="col col-12 d-flex justify-content-center">
-    <button class="btn btn-primary" routerLink="/home">Torna indietro</button>
-</div>
-<div class="row">
-    <div *ngFor="let drink of drinks" class="col col-12 col-md-4">
-        <a [routerLink]="['card-detail', drink.idDrink]" class="btn">
-            <div class="card rounded-5">
-                <img
-                    [src]="drink.strDrinkThumb"
-                    class="card-img-top rounded-top-5"
-                    [alt]="drink.strDrink"
-                />
-                <div class="card-body">
-                    <h3 class="card-title">{{ drink.strDrink }}</h3>
+<div class="container">
+    <div class="row">
+        <h1>Letter {{ lettera }}</h1>
+        <div class="col col-12 d-flex justify-content-center">
+            <button class="btn btn-primary my-3" routerLink="/home">
+                Come back
+            </button>
+        </div>
+    </div>
+    <div class="row" *ngIf="esisteLettera">
+        <div class="col col-12">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        [ngClass]="{
+                            active: selectedFilter === selectFilter.tutti
+                        }"
+                        (click)="selectFilterFunction(selectFilter.tutti)"
+                        >All</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        [ngClass]="{
+                            active: selectedFilter === selectFilter.alcolici
+                        }"
+                        (click)="selectFilterFunction(selectFilter.alcolici)"
+                        >Alcoholic</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        [ngClass]="{
+                            active: selectedFilter === selectFilter.analcolici
+                        }"
+                        (click)="selectFilterFunction(selectFilter.analcolici)"
+                        >Non alcoholic</a
+                    >
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div
+                class="tab-pane"
+                [ngClass]="{ active: selectedFilter === selectFilter.tutti }"
+            >
+                <div class="container">
+                    <div class="row">
+                        <div
+                            *ngFor="let drink of drinks"
+                            class="col col-12 col-md-4"
+                        >
+                            <a
+                                [routerLink]="['card-detail', drink.idDrink]"
+                                class="btn"
+                            >
+                                <div class="card rounded-5">
+                                    <img
+                                        [src]="drink.strDrinkThumb"
+                                        class="card-img-top rounded-top-5"
+                                        [alt]="drink.strDrink"
+                                    />
+                                    <div class="card-body">
+                                        <h3 class="card-title">
+                                            {{ drink.strDrink }}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </a>
+            <div
+                class="tab-pane"
+                [ngClass]="{ active: selectedFilter === selectFilter.alcolici }"
+            >
+                <!-- alcolici-->
+                <div class="container">
+                    <div class="row">
+                        <div
+                            *ngFor="let drink of drinksAlchol"
+                            class="col col-12 col-md-4"
+                        >
+                            <a
+                                [routerLink]="['card-detail', drink.idDrink]"
+                                class="btn"
+                            >
+                                <div class="card rounded-5">
+                                    <img
+                                        [src]="drink.strDrinkThumb"
+                                        class="card-img-top rounded-top-5"
+                                        [alt]="drink.strDrink"
+                                    />
+                                    <div class="card-body">
+                                        <h3 class="card-title">
+                                            {{ drink.strDrink }}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="tab-pane"
+                [ngClass]="{
+                    active: selectedFilter === selectFilter.analcolici
+                }"
+            >
+                <!-- analcolici-->
+                <div class="container">
+                    <div class="row">
+                        <div
+                            *ngFor="let drink of drinksAnalchol"
+                            class="col col-12 col-md-4"
+                        >
+                            <a
+                                [routerLink]="['card-detail', drink.idDrink]"
+                                class="btn"
+                            >
+                                <div class="card rounded-5">
+                                    <img
+                                        [src]="drink.strDrinkThumb"
+                                        class="card-img-top rounded-top-5"
+                                        [alt]="drink.strDrink"
+                                    />
+                                    <div class="card-body">
+                                        <h3 class="card-title">
+                                            {{ drink.strDrink }}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!esisteLettera" class="text-center">
+        The letter does not exist!
     </div>
 </div>
