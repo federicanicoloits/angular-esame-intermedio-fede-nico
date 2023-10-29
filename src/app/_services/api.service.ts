@@ -22,4 +22,7 @@ export class ApiService {
     searchById(id: string) {
         return this.http.get<Drinks>(this.baseUrl + "lookup.php?i=" + id);
     }
+    searchByName(name: string) {
+        return this.http.get<Drinks>(this.baseUrl + "search.php?s=" + name);
+    }
 }

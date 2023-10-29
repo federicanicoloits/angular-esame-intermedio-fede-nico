@@ -1,54 +1,101 @@
-<h1>All Drinks</h1>
 <div class="container">
     <div class="row">
         <div class="col col-12 d-flex justify-content-center flex-wrap">
             <button
                 *ngFor="let letter of letters"
-                class="btn btn-primary mx-1 mb-3"
+                class="btn btn-primary mx-1 mt-3"
                 [routerLink]="['elenco-lettera', letter]"
             >
                 {{ letter }}
             </button>
         </div>
-        <h2>Drink With A</h2>
-        <div *ngFor="let drink of drinksA" class="col col-12 col-md-4">
-            <a [routerLink]="['card-detail', drink.idDrink]" class="btn">
-                <div class="card rounded-5">
-                    <img
-                        [src]="drink.strDrinkThumb"
-                        class="card-img-top rounded-top-5"
-                        [alt]="drink.strDrink"
-                    />
-                    <div class="card-body">
-                        <h3 class="card-title">{{ drink.strDrink }}</h3>
-                    </div>
-                </div>
-            </a>
+        <div class="col-12 text-center">
+            <h1>All Drinks</h1>
         </div>
-        <div
-            class="col-12 d-flex justify-content-center my-3"
-            *ngIf="buttonCaricaDiPiu == false"
-        >
-            <button class="btn btn-primary" (click)="buttonCaricaDiPiu = true">
-                Carica di Più
-            </button>
+        <div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="pe-2 h-100 d-flex justify-content-center">
+                Research a drink
+            </div>
+            <input
+                type="text"
+                (input)="RicercaDrink()"
+                value=""
+                id="input-ricerca"
+                class="rounded-5 mb-3"
+            />
         </div>
     </div>
-    <div class="row" *ngIf="buttonCaricaDiPiu == true">
-        <h2>Drinks From B To Z</h2>
-        <div *ngFor="let drink of drinksBZ" class="col col-12 col-md-4">
-            <a [routerLink]="['card-detail', drink.idDrink]" class="btn">
-                <div class="card rounded-5">
-                    <img
-                        [src]="drink.strDrinkThumb"
-                        class="card-img-top rounded-top-5"
-                        [alt]="drink.strDrink"
-                    />
-                    <div class="card-body">
-                        <h3 class="card-title">{{ drink.strDrink }}</h3>
+    <div *ngIf="!booleanCaricaRicerca">
+        <div class="row">
+            <div class="col-12">
+                <h2>Drink With A</h2>
+            </div>
+            <div *ngFor="let drink of drinksA" class="col col-12 col-md-4">
+                <a [routerLink]="['card-detail', drink.idDrink]" class="btn">
+                    <div class="card rounded-5">
+                        <img
+                            [src]="drink.strDrinkThumb"
+                            class="card-img-top rounded-top-5"
+                            [alt]="drink.strDrink"
+                        />
+                        <div class="card-body">
+                            <h3 class="card-title">{{ drink.strDrink }}</h3>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
+            <div
+                class="col-12 d-flex justify-content-center my-3"
+                *ngIf="buttonCaricaDiPiu == false"
+            >
+                <button
+                    class="btn btn-primary"
+                    (click)="buttonCaricaDiPiu = true"
+                >
+                    Loading More
+                </button>
+            </div>
+        </div>
+        <div class="row" *ngIf="buttonCaricaDiPiu == true">
+            <h2>Drinks From B To Z</h2>
+            <div *ngFor="let drink of drinksBZ" class="col col-12 col-md-4">
+                <a [routerLink]="['card-detail', drink.idDrink]" class="btn">
+                    <div class="card rounded-5">
+                        <img
+                            [src]="drink.strDrinkThumb"
+                            class="card-img-top rounded-top-5"
+                            [alt]="drink.strDrink"
+                        />
+                        <div class="card-body">
+                            <h3 class="card-title">{{ drink.strDrink }}</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="booleanCaricaRicerca">
+        <div class="row">
+            <div class="col-12">
+                <h2>Research Drink</h2>
+            </div>
+            <div
+                *ngFor="let drink of drinksFiltrati"
+                class="col col-12 col-md-4"
+            >
+                <a [routerLink]="['card-detail', drink.idDrink]" class="btn">
+                    <div class="card rounded-5">
+                        <img
+                            [src]="drink.strDrinkThumb"
+                            class="card-img-top rounded-top-5"
+                            [alt]="drink.strDrink"
+                        />
+                        <div class="card-body">
+                            <h3 class="card-title">{{ drink.strDrink }}</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>

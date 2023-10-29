@@ -10,10 +10,12 @@ export class HomeComponent implements OnInit {
     drinksA: Drink[] = [];
     drinksBZ: Drink[] = [];
     buttonCaricaDiPiu: boolean = false;
+    letters: string[] = [];
+    drinksFiltrati: Drink[] | null = null;
+    booleanCaricaRicerca: boolean = false;
 
     constructor(private drinkService: DrinkService) {}
 
-    letters: string[] = [];
     ngOnInit() {
         for (let i = 97; i <= 122; i++) {
             const letter = String.fromCharCode(i);
@@ -36,4 +38,20 @@ export class HomeComponent implements OnInit {
             });
         }
     }
+
+    RicercaDrink = () => {
+        this.booleanCaricaRicerca = true;
+        const input = document.getElementById(
+            "input-ricerca"
+        ) as HTMLInputElement;
+        if (input) {
+            const valore = input.value;
+            this.drinkService.getRicercaDrink(valore).subscribe((response) => {
+                if (response !== null) {
+                    console.log(valore);
+                    this.drinksFiltrati = response.drinks;
+                }
+            });
+        }
+    };
 }
