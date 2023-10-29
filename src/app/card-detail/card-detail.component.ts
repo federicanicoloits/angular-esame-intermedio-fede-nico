@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Drink } from "../drink.interface";
 import { Property } from "../property-drink.interface";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { DrinkService } from "../_services/drink.service";
 
 @Component({
@@ -25,7 +25,7 @@ export class CardDetail implements OnInit {
     selectedPill: string = this.selectPill.en;
 
     constructor(
-        private http: HttpClient,
+        private router: Router,
         private activatedRoute: ActivatedRoute,
         private drinkService: DrinkService
     ) {}
@@ -36,7 +36,7 @@ export class CardDetail implements OnInit {
             this.drinkService
                 .getDettaglioDrink(this.idDrink)
                 .subscribe((dati) => {
-                    if (dati.drinks !== null) {
+                    if (dati && dati.drinks !== null) {
                         this.drink = dati.drinks[0];
                         for (let index = 1; index <= 15; index++) {
                             const ingredientKey = "strIngredient" + index;
@@ -57,6 +57,8 @@ export class CardDetail implements OnInit {
                                 this.properties.push(property);
                             }
                         }
+                    } else {
+                        this.router.navigate(["/errore"]);
                     }
                 });
         });

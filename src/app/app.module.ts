@@ -10,6 +10,7 @@ import { CardDetail } from "./card-detail/card-detail.component";
 import { ElencoLettera } from "./elenco-lettera/elenco-lettera.component";
 import { ApiService } from "./_services/api.service";
 import { DrinkService } from "./_services/drink.service";
+import { Page404 } from "./page-404/page-404";
 
 @NgModule({
     imports: [
@@ -19,7 +20,13 @@ import { DrinkService } from "./_services/drink.service";
         ReactiveFormsModule,
         FormsModule,
     ],
-    declarations: [AppComponent, HomeComponent, CardDetail, ElencoLettera],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        CardDetail,
+        ElencoLettera,
+        Page404,
+    ],
     bootstrap: [AppComponent],
     providers: [ApiService, DrinkService],
 })

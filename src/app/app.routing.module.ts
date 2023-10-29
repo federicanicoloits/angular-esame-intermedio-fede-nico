@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { CardDetail } from "./card-detail/card-detail.component";
 import { ElencoLettera } from "./elenco-lettera/elenco-lettera.component";
+import { Page404 } from "./page-404/page-404";
 
 const routes: Routes = [
     { path: "home", component: HomeComponent },
@@ -13,6 +14,8 @@ const routes: Routes = [
         path: "home/elenco-lettera/:lettera/card-detail/:id",
         component: CardDetail,
     },
+    { path: "home/errore", component: Page404 },
+    { path: "**", redirectTo: "home/errore", pathMatch: "full" },
 ];
 
 @NgModule({
