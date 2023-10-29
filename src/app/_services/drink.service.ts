@@ -17,4 +17,7 @@ export class DrinkService {
     getRicercaDrink(name: string) {
         return this.apiService.searchByName(name);
     }
+    getRicercaIngrediente(name: string) {
+        return this.apiService.searchByIngredient(name);
+    }
 }

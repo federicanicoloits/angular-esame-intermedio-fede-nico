@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
     letters: string[] = [];
     drinksFiltrati: Drink[] | null = null;
     booleanCaricaRicerca: boolean = false;
+    funziona: boolean = true;
 
     constructor(private drinkService: DrinkService) {}
 
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit {
     RicercaDrink = () => {
         this.booleanCaricaRicerca = true;
         const input = document.getElementById(
-            "input-ricerca"
+            "input-ricerca-drink"
         ) as HTMLInputElement;
         if (input) {
             const valore = input.value;
@@ -52,6 +53,30 @@ export class HomeComponent implements OnInit {
                     this.drinksFiltrati = response.drinks;
                 }
             });
+        }
+    };
+
+    RicercaIngrediente = () => {
+        const input = document.getElementById(
+            "input-ricerca-ingrediente"
+        ) as HTMLInputElement;
+        if (input) {
+            const valore = input.value;
+            if (valore !== "") {
+                this.booleanCaricaRicerca = true;
+                this.drinkService
+                    .getRicercaIngrediente(valore)
+                    .subscribe((response) => {
+                        if (response !== null) {
+                            this.funziona = true;
+                            this.drinksFiltrati = response.drinks;
+                        } else {
+                            this.funziona = false;
+                        }
+                    });
+            } else {
+                this.booleanCaricaRicerca = false;
+            }
         }
     };
 }

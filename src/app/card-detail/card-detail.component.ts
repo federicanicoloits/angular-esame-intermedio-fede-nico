@@ -49,9 +49,7 @@ export class CardDetail implements OnInit {
                                     measures: (this.drink as any)[measuresKey],
                                     imgUrl:
                                         "https://www.thecocktaildb.com/images/ingredients/" +
-                                        (this.drink as any)[ingredientKey]
-                                            .toLowerCase()
-                                            .replace(/ /g, "-") +
+                                        (this.drink as any)[ingredientKey] +
                                         ".png",
                                 };
                                 this.properties.push(property);

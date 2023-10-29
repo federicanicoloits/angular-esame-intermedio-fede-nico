@@ -35,6 +35,7 @@ export class ElencoLettera implements OnInit {
                 .getElencoDrinks(this.lettera)
                 .subscribe((response) => {
                     if (response && response.drinks !== null) {
+                        this.esisteLettera = true;
                         this.drinks = response.drinks;
                         for (let i = 0; i < this.drinks.length; i++) {
                             if (this.drinks[i].strAlcoholic === "Alcoholic") {

@@ -20,7 +20,17 @@
                 type="text"
                 (input)="RicercaDrink()"
                 value=""
-                id="input-ricerca"
+                id="input-ricerca-drink"
+                class="rounded-5 mb-3"
+            />
+            <div class="pe-2 h-100 d-flex justify-content-center">
+                - Research a ingredient
+            </div>
+            <input
+                type="text"
+                (input)="RicercaIngrediente()"
+                value=""
+                id="input-ricerca-ingrediente"
                 class="rounded-5 mb-3"
             />
         </div>
@@ -75,7 +85,7 @@
         </div>
     </div>
     <div *ngIf="booleanCaricaRicerca">
-        <div class="row">
+        <div class="row" *ngIf="drinksFiltrati && funziona">
             <div class="col-12">
                 <h2>Research Drink</h2>
             </div>
@@ -95,6 +105,11 @@
                         </div>
                     </div>
                 </a>
+            </div>
+        </div>
+        <div class="row" *ngIf="drinksFiltrati == null || funziona == false">
+            <div class="col col-12 d-flex justify-content-center">
+                <p class="text-white fs-2">Non ci sono drink!!</p>
             </div>
         </div>
     </div>

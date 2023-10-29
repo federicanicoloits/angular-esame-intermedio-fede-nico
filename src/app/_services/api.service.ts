@@ -25,4 +25,7 @@ export class ApiService {
     searchByName(name: string) {
         return this.http.get<Drinks>(this.baseUrl + "search.php?s=" + name);
     }
+    searchByIngredient(name: string) {
+        return this.http.get<Drinks>(this.baseUrl + "filter.php?i=" + name);
+    }
 }
