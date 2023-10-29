@@ -4,7 +4,7 @@
             <button
                 *ngFor="let letter of letters"
                 class="btn btn-primary mx-1 mt-3"
-                [routerLink]="['elenco-lettera', letter]"
+                [routerLink]="['letters', letter]"
             >
                 {{ letter }}
             </button>
@@ -41,7 +41,7 @@
                 <h2>Drink With A</h2>
             </div>
             <div *ngFor="let drink of drinksA" class="col col-12 col-md-4">
-                <a [routerLink]="['card-detail', drink.idDrink]" class="btn">
+                <a [routerLink]="['drinks', drink.idDrink]" class="btn">
                     <div class="card rounded-5">
                         <img
                             [src]="drink.strDrinkThumb"
@@ -69,7 +69,7 @@
         <div class="row" *ngIf="buttonCaricaDiPiu == true">
             <h2>Drinks From B To Z</h2>
             <div *ngFor="let drink of drinksBZ" class="col col-12 col-md-4">
-                <a [routerLink]="['card-detail', drink.idDrink]" class="btn">
+                <a [routerLink]="['drinks', drink.idDrink]" class="btn">
                     <div class="card rounded-5">
                         <img
                             [src]="drink.strDrinkThumb"
@@ -93,7 +93,7 @@
                 *ngFor="let drink of drinksFiltrati"
                 class="col col-12 col-md-4"
             >
-                <a [routerLink]="['card-detail', drink.idDrink]" class="btn">
+                <a [routerLink]="['drinks', drink.idDrink]" class="btn">
                     <div class="card rounded-5">
                         <img
                             [src]="drink.strDrinkThumb"

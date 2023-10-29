@@ -11,6 +11,7 @@ import { ElencoLettera } from "./elenco-lettera/elenco-lettera.component";
 import { ApiService } from "./_services/api.service";
 import { DrinkService } from "./_services/drink.service";
 import { Page404 } from "./page-404/page-404";
+import { NavigationService } from "./_services/navigation.service";
 
 @NgModule({
     imports: [
@@ -28,6 +29,6 @@ import { Page404 } from "./page-404/page-404";
         Page404,
     ],
     bootstrap: [AppComponent],
-    providers: [ApiService, DrinkService],
+    providers: [ApiService, DrinkService, NavigationService],
 })
 export class AppModule {}

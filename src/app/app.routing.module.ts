@@ -7,15 +7,16 @@ import { Page404 } from "./page-404/page-404";
 
 const routes: Routes = [
     { path: "home", component: HomeComponent },
-    { path: "home/card-detail/:id", component: CardDetail },
+    { path: "home/drinks/:id", component: CardDetail },
     { path: "", redirectTo: "/home", pathMatch: "full" },
-    { path: "home/elenco-lettera/:lettera", component: ElencoLettera },
+    { path: "home/letters/:lettera", component: ElencoLettera },
     {
-        path: "home/elenco-lettera/:lettera/card-detail/:id",
-        component: CardDetail,
+        path: "home/letters/:lettera/drinks/:id",
+        redirectTo: "home/drinks/:id",
+        pathMatch: "full",
     },
-    { path: "home/errore", component: Page404 },
-    { path: "**", redirectTo: "home/errore", pathMatch: "full" },
+    { path: "home/error", component: Page404 },
+    { path: "**", redirectTo: "home/error", pathMatch: "full" },
 ];
 
 @NgModule({

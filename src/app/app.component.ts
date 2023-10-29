@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { NavigationService } from "./_services/navigation.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+    selector: "app-root",
+    templateUrl: "./app.component.html",
 })
 export class AppComponent implements OnInit {
+    constructor(private navigationService: NavigationService) {}
 
-  constructor() {}
-
-  ngOnInit(): void {
-    
-  }
+    ngOnInit(): void {}
 }

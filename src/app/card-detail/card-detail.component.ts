@@ -56,7 +56,7 @@ export class CardDetail implements OnInit {
                             }
                         }
                     } else {
-                        this.router.navigate(["/errore"]);
+                        this.router.navigate(["/error"]);
                     }
                 });
         });
