@@ -24,7 +24,12 @@ h1 {
     min-height: 31rem;
 }
 .img-w-500 {
-    width: 500px;
+    width: 100%;
+}
+@media (min-width: 1200px) {
+    .img-w-500 {
+        width: 500px;
+    }
 }
 h4 {
     font-size: 1rem;

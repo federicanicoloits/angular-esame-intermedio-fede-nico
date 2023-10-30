@@ -12,10 +12,10 @@
         <div class="col-12 text-center">
             <h1>All Drinks</h1>
         </div>
-        <div class="col-12 d-flex justify-content-center align-items-center">
-            <div class="pe-2 h-100 d-flex justify-content-center">
-                Research a drink
-            </div>
+        <div
+            class="col-12 d-flex justify-content-center align-items-center flex-wrap"
+        >
+            <div class="d-flex justify-content-center">Research a drink</div>
             <input
                 type="text"
                 (input)="RicercaDrink()"
@@ -23,8 +23,8 @@
                 id="input-ricerca-drink"
                 class="rounded-5 mb-3"
             />
-            <div class="pe-2 h-100 d-flex justify-content-center">
-                - Research a ingredient
+            <div class="d-flex justify-content-center">
+                Research a ingredient
             </div>
             <input
                 type="text"
@@ -38,7 +38,7 @@
     <div *ngIf="!booleanCaricaRicerca">
         <div class="row">
             <div class="col-12">
-                <h2>Drink With A</h2>
+                <h2 class="mt-4">Drink With A</h2>
             </div>
             <div *ngFor="let drink of drinksA" class="col col-12 col-md-4">
                 <a [routerLink]="['drinks', drink.idDrink]" class="btn">
