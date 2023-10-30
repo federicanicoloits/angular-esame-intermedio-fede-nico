@@ -2,11 +2,11 @@
     <div class="row">
         <div class="col col-12 d-flex justify-content-center flex-wrap">
             <button
-                *ngFor="let letter of letters"
+                *ngFor="let letterAndNumber of lettersAndNumbers"
                 class="btn btn-primary mx-1 mt-3"
-                [routerLink]="['letters', letter]"
+                [routerLink]="['letters', letterAndNumber]"
             >
-                {{ letter }}
+                {{ letterAndNumber }}
             </button>
         </div>
         <div class="col-12 text-center">
@@ -68,7 +68,7 @@
         </div>
         <div class="row" *ngIf="buttonCaricaDiPiu == true">
             <h2>Drinks From B To Z</h2>
-            <div *ngFor="let drink of drinksBZ" class="col col-12 col-md-4">
+            <div *ngFor="let drink of drinksBZ19" class="col col-12 col-md-4">
                 <a [routerLink]="['drinks', drink.idDrink]" class="btn">
                     <div class="card rounded-5">
                         <img

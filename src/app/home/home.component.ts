@@ -8,9 +8,9 @@ import { DrinkService } from "../_services/drink.service";
 })
 export class HomeComponent implements OnInit {
     drinksA: Drink[] = [];
-    drinksBZ: Drink[] = [];
+    drinksBZ19: Drink[] = [];
     buttonCaricaDiPiu: boolean = false;
-    letters: string[] = [];
+    lettersAndNumbers: string[] = [];
     drinksFiltrati: Drink[] | null = null;
     booleanCaricaRicerca: boolean = false;
     funziona: boolean = true;
@@ -19,24 +19,30 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         for (let i = 97; i <= 122; i++) {
-            const letter = String.fromCharCode(i);
-            this.letters.push(letter);
+            const letterAndNumber = String.fromCharCode(i);
+            this.lettersAndNumbers.push(letterAndNumber);
+        }
+        for (let i = 1; i <= 9; i++) {
+            const letterAndNumber = i.toString();
+            this.lettersAndNumbers.push(letterAndNumber);
         }
 
-        for (const letter of this.letters) {
-            this.drinkService.getElencoDrinks(letter).subscribe((response) => {
-                if (response !== undefined) {
-                    if (letter === "a") {
-                        if (response.drinks !== null)
-                            this.drinksA = response.drinks;
-                    } else {
-                        if (response.drinks !== null)
-                            this.drinksBZ = this.drinksBZ.concat(
-                                response.drinks
-                            );
+        for (const letterAndNumber of this.lettersAndNumbers) {
+            this.drinkService
+                .getElencoDrinks(letterAndNumber)
+                .subscribe((response) => {
+                    if (response !== undefined) {
+                        if (letterAndNumber === "a") {
+                            if (response.drinks !== null)
+                                this.drinksA = response.drinks;
+                        } else {
+                            if (response.drinks !== null)
+                                this.drinksBZ19 = this.drinksBZ19.concat(
+                                    response.drinks
+                                );
+                        }
                     }
-                }
-            });
+                });
         }
     }
 
