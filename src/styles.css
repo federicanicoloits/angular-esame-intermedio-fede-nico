@@ -21,7 +21,7 @@ h1 {
 }
 .card {
     border: 0;
-    height: 100%;
+    min-height: 31rem;
 }
 .img-w-500 {
     width: 500px;
